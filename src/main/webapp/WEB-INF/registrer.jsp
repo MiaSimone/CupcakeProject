@@ -59,6 +59,10 @@
                     <button type="submit" class="btn btn-dark mt-3">Registrer</button>
                 </div>
 
+                <div class="text-center mt-3">
+                    <a class="btn btn-outline-dark" href="FrontController?target=redirect&destination=login" role="button">Tilbage til Login</a>
+                </div>
+
             </form>
         </div>
 
