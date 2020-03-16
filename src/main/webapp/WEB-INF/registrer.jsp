@@ -2,7 +2,7 @@
   Created by IntelliJ IDEA.
   User: miade
   Date: 16-03-2020
-  Time: 09:28
+  Time: 12:58
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,15 +15,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <title>Login</title>
+    <title>Registrering</title>
 </head>
 <body>
 
 <div class="container">
     <img src="Images/LoginBackground.png" class="img-fluid mb-4" alt="Logo" width="100%" height=auto>
 
-    <h1 class="text-center mb-4">Login</h1>
+    <h1 class="text-center mb-4">Registrer</h1>
 
     <div class="row">
 
@@ -31,25 +30,35 @@
 
         <div class="col-lg-4">
 
-            <form name="login" action="FrontController" method="post">
+            <form name="registrer" action="FrontController" method="post">
 
-                <input type="hidden" name="taget" value="login"/>
+                <input type="hidden" name="taget" value="registrer"/>
 
+                <div class="form-group">
+                    <label for="navn">Indtast dit navn:</label>
+                    <input type="text" name="navn" class="form-control" id="navn" aria-describedby="navnHelp">
+                </div>
                 <div class="form-group">
                     <label for="email">Indtast din email:</label>
                     <input type="text" name="email" class="form-control" id="email" aria-describedby="emailHelp">
                 </div>
                 <div class="form-group">
-                    <label for="password">Indtast dit password:</label>
-                    <input type="password" name="password" class="form-control" id="password">
+                    <label for="mobil">Indtast dit telefon-nummer (uden landekode):</label>
+                    <input type="text" name="mobil" class="form-control" id="mobil" aria-describedby="mobilHelp">
+                </div>
+                <div class="form-group">
+                    <label for="password1">Indtast dit password:</label>
+                    <input type="password" name="password1" class="form-control" id="password1">
+                </div>
+                <div class="form-group">
+                    <label for="password2">Indtast dit password igen:</label>
+                    <input type="password" name="password2" class="form-control" id="password2">
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-dark mt-3">Login</button>
+                    <button type="submit" class="btn btn-dark mt-3">Registrer</button>
                 </div>
-                <div class="text-center mt-3">
-                    <a class="btn btn-outline-dark" href="FrontController?target=redirect&destination=registrer" role="button">Registrer</a>
-                </div>
+
             </form>
         </div>
 
@@ -65,18 +74,6 @@
     </div>
     <!-- /.container -->
 </footer>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
 </body>
 </html>

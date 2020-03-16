@@ -45,7 +45,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" style="border-bottom: 2px solid black;">
     <a class="navbar-brand ml-4 c" href="#">
         <img src="Images/LogoUdenBaggrund.png" width="90" height="auto">
-          Olsker Cupcakes
+        Olsker Cupcakes
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -74,6 +74,11 @@
             <br><br>
 
             <img src="./Images/LogoUdenBaggrund.png" alt="Logo" width="250" height=auto>
+
+            <br><br><br><br><br><br>
+            <div class="list-group">
+                Lidt om os
+            </div>
 
         </div>
         <!-- /.col-lg-3 -->
@@ -109,70 +114,60 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-        </div>
-        <!-- /.col-lg-9 -->
-
-    </div>
-<!-- /.row -->
-</div>
-<!-- /.container -->
-
-<!-- Cards -->
-<div class="container mt-5">
 
             <div class="row">
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="FrontController?target=redirect&destination=bestiling"><img class="card-img-top" src="./Images/bestil.jpg" alt=""></a>
+                        <a href="#"><img class="card-img-top" src="./Images/Chokolade.jpg" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="FrontController?target=redirect&destination=bestiling" style="text-decoration: none">Bestil Cupcakes</a>
+                                <a href="#" style="text-decoration: none">Chokolade-Bund</a>
                             </h4>
-                            <p class="card-text">Her kan De bestille Danmarks bedste cupcakes! De kan frit mikse bunde
-                            med toppings efter Deres smag. God fornøjelse!</p>
+                            <p class="card-text">Lækker svampet chokolade bund. Kakao bønnerne er plukket af lokale i Columbia. Renere chokolade findes ikke!</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="./Images/ingrediens.jpg" alt=""></a>
+                        <a href="#"><img class="card-img-top" src="./Images/Vanilje3.jpg" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#" style="text-decoration: none">Vores Ingredienser</a>
+                                <a href="#" style="text-decoration: none">Vanilje-Bund</a>
                             </h4>
-                            <p class="card-text">Hvis De er interesseret i at vide mere om vores økologiske ingredienser,
-                            kan de klikke her.</p>
+                            <p class="card-text">En luftig, dog mættende, vanilje bund med økologisk fransk vanilje og 3 slags mel. Denne bund er vegansk!</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
-                        <a href="#"><img class="card-img-top" src="./Images/Gruppe4.jpg" alt=""></a>
+                        <a href="#"><img class="card-img-top" src="./Images/Jordbær2.jpg" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
-                                <a href="#" style="text-decoration: none">Vores Gruppe</a>
+                                <a href="#" style="text-decoration: none">Jordbær-Bund</a>
                             </h4>
-                            <p class="card-text">Her vil De finde vores kontakt information.</p>
+                            <p class="card-text">Hvem elsker ikke økologiske jordbær? Det er netop hvad denne bund indebære. Hvert jordbær, af sorten Korona, er håndplukket fra de danske gårde. Mums!</p>
                         </div>
                     </div>
                 </div>
+
 
             </div>
             <!-- /.row -->
+
         </div>
         <!-- /.col-lg-9 -->
+
     </div>
     <!-- /.row -->
 
 </div>
 <!-- /.container -->
 
-
 <!-- Footer -->
-<footer class="py-5 bg-dark mt-5">
+<footer class="py-5 bg-dark">
     <div class="container">
         <p class="m-0 text-center text-white">Copyright &copy; Gruppe4</p>
     </div>
