@@ -26,14 +26,12 @@
     <h1 class="text-center mb-4">Login</h1>
 
     <div class="row">
-
         <div class="col-lg-4"></div>
-
         <div class="col-lg-4">
 
             <form name="login" action="FrontController" method="post">
 
-                <input type="hidden" name="taget" value="login"/>
+                <input type="hidden" name="target" value="login"/>
 
                 <div class="form-group">
                     <label for="email">Indtast din email:</label>
@@ -54,7 +52,6 @@
         </div>
 
         <div class="col-lg-4"></div>
-
     </div>  <!-- row -->
 </div>
 

@@ -11,13 +11,14 @@ public class Register extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws LoginSampleException {
+        /*
         String navn = request.getParameter( "navn" );
         String email = request.getParameter( "email" );
         String mobilnummer = request.getParameter( "mobil" );
         String password1 = request.getParameter( "password1" );
         String password2 = request.getParameter( "password2" );
        if ( password1.equals( password2 ) ) {
-            User user = LogicFacade.createUser( email, password1 );
+            User user = LogicFacade.createUser( navn, email, password1 );
             HttpSession session = request.getSession();
 
             session.setAttribute("navn",navn);
@@ -29,6 +30,9 @@ public class Register extends Command {
         } else {
             throw new LoginSampleException( "the two passwords did not match" );
         }
+
+         */
+        return null;
     }
 
 }

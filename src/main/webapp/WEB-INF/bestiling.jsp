@@ -20,6 +20,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Bestilling</title>
+
+
 </head>
 <body>
 
@@ -30,8 +32,8 @@
     <div class="row">
         <div class="col-md-5 school-options-dropdown text-center">
             <div class="dropdown btn-group">
-
-                <button class="btn btn-light dropdown-toggle" style="border-color: black; width: fit-content" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Vælg bund
                 </button>
                 <ul class="dropdown-menu">
