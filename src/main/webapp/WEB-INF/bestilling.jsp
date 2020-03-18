@@ -1,4 +1,6 @@
-<%--
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="FunctionLayer.Toppings" %>
+<%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: miade
   Date: 16-03-2020
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <title>Bestilling</title>
 
 
@@ -27,6 +30,20 @@
 
 <div class="container">
     <img src="Images/LoginBackground.png" class="img-fluid mb-4" alt="Logo" width="100%" height=auto>
+
+
+    <div class="dropdown">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            Dropdown button
+        </button>
+        <div class="dropdown-menu">
+            <c:forEach var="topping" items="${sessionScope.topping}">
+                ${topping}
+                <br>
+            </c:forEach>
+        </div>
+    </div>
+
 
 <!-- Dropdowns -->
     <div class="row">
@@ -46,12 +63,17 @@
         <div class="col-md-5 school-options-dropdown text-center">
             <div class="dropdown btn-group">
 
-                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button"
+                        id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Vælg topping
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Add your school</a></li>
-                    <li><a href="#">Hello</a></li>
+
+
+                    <c:forEach var="topping" items="${sessionScope.topping}">
+                        ${topping}
+                        <br>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
@@ -67,7 +89,9 @@
                     <li><a href="#">Hello</a></li>
                 </ul>
             </div>
+
         </div>
+
     </div>
 
 </div>
