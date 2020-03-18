@@ -27,5 +27,10 @@ public class LogicFacade {
         return c.toppingList();
     }
 
+    public static ArrayList<Bottom> bottoms( ) throws LoginSampleException, SQLException, ClassNotFoundException {
+        CupcakeMapper c = new CupcakeMapper();
+        return c.bottomList();
+    }
+
 
 }

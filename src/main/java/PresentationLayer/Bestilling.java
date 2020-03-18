@@ -1,9 +1,6 @@
 package PresentationLayer;
 
-import FunctionLayer.LogicFacade;
-import FunctionLayer.LoginSampleException;
-import FunctionLayer.Topping;
-import FunctionLayer.User;
+import FunctionLayer.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +13,7 @@ public class Bestilling extends Command {
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ClassNotFoundException {
         // Hent listen fra DB og set det på nogle scopes
 
+        // Topping:
         String toppingVariant = request.getParameter("topping");
         double price = request.getIntHeader("price");
 
@@ -25,8 +23,21 @@ public class Bestilling extends Command {
         HttpSession session = request.getSession();
 
         session.setAttribute("topping", topping);
-        //session.setAttribute("toppingVariant", topping1.getTopping());
-        //session.setAttribute("price", topping1.getToppingPrice());
+        session.setAttribute("toppingVariant", topping1.getTopping());
+        session.setAttribute("price", topping1.getToppingPrice());
+
+        // Bottom:
+        String bottomVariant = request.getParameter("bottom");
+        double priceBottom = request.getIntHeader("price");
+
+        ArrayList<Bottom> bottoms = LogicFacade.bottoms();
+
+        Bottom bottom = new Bottom(bottomVariant, priceBottom);
+        HttpSession session1 = request.getSession();
+
+        session.setAttribute("bottom", bottoms);
+        session.setAttribute("bottomVariant", bottom.getBottom());
+        session.setAttribute("price", bottom.getBottomPrice());
 
         return "bestilling";
 

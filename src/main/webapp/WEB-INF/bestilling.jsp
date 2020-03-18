@@ -1,5 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="FunctionLayer.Toppings" %>
 <%@ page import="java.sql.SQLException" %><%--
   Created by IntelliJ IDEA.
   User: miade
@@ -31,74 +30,58 @@
 <div class="container">
     <img src="Images/LoginBackground.png" class="img-fluid mb-4" alt="Logo" width="100%" height=auto>
 
-
-    <div class="dropdown">
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            Dropdown button
-        </button>
-        <div class="dropdown-menu">
-            <c:forEach var="topping" items="${sessionScope.topping}">
-                ${topping}
-                <br>
-            </c:forEach>
-        </div>
-    </div>
-
-
 <!-- Dropdowns -->
     <div class="row">
         <div class="col-md-5 school-options-dropdown text-center">
-            <div class="dropdown btn-group">
-                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button"
-                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Vælg bund
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Add your school to your library books are good morning</a></li>
-                    <li><a href="#">Hello</a></li>
-                </ul>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Vælg bund:</label>
+                <select class="form-control" name="bottom" id="exampleFormControlSelect2" placeholder="Vælg bund">
+                    <c:forEach var="bottom" items="${sessionScope.bottom}">
+                        <option>
+                            <c:out value="${bottom} kr"/>
+                        </option>
+                    </c:forEach>
+                </select>
             </div>
         </div>
 
         <div class="col-md-5 school-options-dropdown text-center">
-            <div class="dropdown btn-group">
-
-                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button"
-                        id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Vælg topping
-                </button>
-                <ul class="dropdown-menu">
-
-
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Vælg topping:</label>
+                <select class="form-control" name="topping" id="exampleFormControlSelect1">
                     <c:forEach var="topping" items="${sessionScope.topping}">
-                        ${topping}
-                        <br>
+                        <option>
+                            <c:out value="${topping} kr"/>
+                        </option>
                     </c:forEach>
-                </ul>
+                </select>
             </div>
         </div>
 
-        <div class="col-md-2 school-options-dropdown text-center">
-            <div class="dropdown btn-group">
-
-                <button class="btn btn-light dropdown-toggle" style="border-color: black" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Antal
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Add your school</a></li>
-                    <li><a href="#">Hello</a></li>
-                </ul>
+        <div class="col-md-2 school-options text-center">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Indtast antal cupcakes</label>
+                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Antal cupcakes">
             </div>
-
         </div>
-
     </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12 school-options text-right">
+            <p>
+                <a href="#" class="btn btn-success btn-lg">
+                    <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
+                </a>
+            </p>
+
+        </div>
+    </div>
+
 
 </div>
 <!-- /.container -->
 
-Her kan der bestilles cupcakes
-</div>
+
 
 <!-- Footer -->
 <footer class="py-5 bg-dark mt-4" style="position: absolute; bottom: 0; width: 100%">
