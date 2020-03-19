@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.sql.SQLException" %><%--
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="UtilClass.Initializer" %><%--
   Created by IntelliJ IDEA.
   User: miade
   Date: 16-03-2020
@@ -27,60 +28,63 @@
 </head>
 <body>
 
+<%
+    if (request.getServletContext().getAttribute("toppingList") == null) {
+        request.getServletContext().setAttribute("toppingList", Initializer.getToppingList());
+    }
+    if (request.getServletContext().getAttribute("bottomList") == null) {
+        request.getServletContext().setAttribute("bottomList", Initializer.getBottomList());
+    }
+%>
+
 <div class="container">
     <img src="Images/LoginBackground.png" class="img-fluid mb-4" alt="Logo" width="100%" height=auto>
 
-<!-- Dropdowns -->
-    <div class="row">
-        <div class="col-md-5 school-options-dropdown text-center">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Vælg bund:</label>
-                <select class="form-control" name="bottom" id="exampleFormControlSelect2" placeholder="Vælg bund">
-                    <c:forEach var="bottom" items="${sessionScope.bottom}">
-                        <option>
-                            <c:out value="${bottom} kr"/>
-                        </option>
-                    </c:forEach>
-                </select>
+    <!-- Dropdowns -->
+    <form action="FrontController" method="post">
+        <input type="hidden" name="target" value="kurv"/>
+
+        <div class="row">
+
+            <div class="col-md-5 school-options-dropdown text-center">
+                <div class="form-group">
+                    <label for="bottom">Vælg bund:</label>
+                    <select class="form-control" name="bottom" id="bottom">
+                        <c:forEach var="bottom" items="${applicationScope.bottomList}">
+                            <option value="${bottom.id}">${bottom.bottom}</option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-5 school-options-dropdown text-center">
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Vælg topping:</label>
-                <select class="form-control" name="topping" id="exampleFormControlSelect1">
-                    <c:forEach var="topping" items="${sessionScope.topping}">
-                        <option>
-                            <c:out value="${topping} kr"/>
-                        </option>
-                    </c:forEach>
-                </select>
+            <div class="col-md-5 school-options-dropdown text-center">
+                <div class="form-group">
+                    <label for="topping">Vælg topping:</label>
+                    <select class="form-control" name="topping" id="topping">
+                        <c:forEach var="topping" items="${applicationScope.toppingList}">
+                            <option value="${topping.id}">${topping.topping}</option>
+                        </c:forEach>
+                    </select>
+                </div>
             </div>
-        </div>
 
-        <div class="col-md-2 school-options text-center">
-            <div class="form-group">
-                <label for="formGroupExampleInput">Indtast antal cupcakes</label>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Antal cupcakes">
+            <div class="col-md-2 school-options text-center">
+                <div class="form-group">
+                    <label for="quantity">Indtast antal cupcakes:</label>
+                    <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Antal cupcakes">
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-5">
-        <div class="col-md-12 school-options text-right">
-            <p>
-                <a href="#" class="btn btn-success btn-lg">
-                    <span class="glyphicon glyphicon-shopping-cart"></span> Shopping Cart
-                </a>
-            </p>
 
         </div>
-    </div>
 
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary mt-4">Tilføj til kurv</button>
+        </div>
 
+    </form>
+</div>
 </div>
 <!-- /.container -->
-
 
 
 <!-- Footer -->

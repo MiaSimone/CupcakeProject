@@ -12,32 +12,31 @@ public class Bestilling extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ClassNotFoundException {
         // Hent listen fra DB og set det på nogle scopes
-
-        // Topping:
-        String toppingVariant = request.getParameter("topping");
-        double price = request.getIntHeader("price");
-
-        ArrayList<Topping> topping = LogicFacade.topping();
-
-        Topping topping1 = new Topping(toppingVariant, price);
         HttpSession session = request.getSession();
 
-        session.setAttribute("topping", topping);
-        session.setAttribute("toppingVariant", topping1.getTopping());
+        // Topping:
+        String topping = request.getParameter("topping");
+        double price = request.getIntHeader("price");
+
+        ArrayList<Topping> toppingList = LogicFacade.topping();
+
+        Topping topping1 = new Topping(topping, price);
+
+        session.setAttribute("toppingList", toppingList);
+        session.setAttribute("topping", topping1.getTopping());
         session.setAttribute("price", topping1.getToppingPrice());
 
         // Bottom:
-        String bottomVariant = request.getParameter("bottom");
+        String bottom = request.getParameter("bottom");
         double priceBottom = request.getIntHeader("price");
 
-        ArrayList<Bottom> bottoms = LogicFacade.bottoms();
+        ArrayList<Bottom> bottomList = LogicFacade.bottoms();
 
-        Bottom bottom = new Bottom(bottomVariant, priceBottom);
-        HttpSession session1 = request.getSession();
+        Bottom bottom1 = new Bottom(bottom, priceBottom);
 
-        session.setAttribute("bottom", bottoms);
-        session.setAttribute("bottomVariant", bottom.getBottom());
-        session.setAttribute("price", bottom.getBottomPrice());
+        session.setAttribute("bottomList", bottomList);
+        session.setAttribute("bottom", bottom1.getBottom());
+        session.setAttribute("bottomprice", bottom1.getBottomPrice());
 
         return "bestilling";
 

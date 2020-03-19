@@ -12,6 +12,12 @@ public class Bottom {
         this.bottomPrice = bottomPrice;
     }
 
+    public Bottom(int id, String bottom, double bottomPrice) {
+        this.id = id;
+        this.bottom = bottom;
+        this.bottomPrice = bottomPrice;
+    }
+
     public int getId() {
         return id;
     }

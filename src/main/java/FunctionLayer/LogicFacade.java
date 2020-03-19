@@ -1,10 +1,10 @@
 package FunctionLayer;
 
-import DBAccess.CupcakeMapper;
-import DBAccess.UserMapper;
+import DBAccess.*;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The purpose of LogicFacade is to...
@@ -22,7 +22,21 @@ public class LogicFacade {
         return user;
     }
 
-    public static ArrayList<Topping> topping( ) throws LoginSampleException, SQLException, ClassNotFoundException {
+    public static List<Topping> getAllToppings() throws LoginSampleException {
+        return ToppingMapper.getAllToppings();
+    }
+    public static List<Bottom> getAllBottoms() throws LoginSampleException {
+        return BottomMapper.getAllBottoms();
+    }
+
+    public static void insertOrdre(int Quantity,
+                                   double Sum, int ToppingID, int BottomID) throws LoginSampleException {
+        OrdreMapper.insertOrdre(Quantity, Sum, ToppingID, BottomID);
+    }
+
+
+
+        public static ArrayList<Topping> topping( ) throws LoginSampleException, SQLException, ClassNotFoundException {
         CupcakeMapper c = new CupcakeMapper();
         return c.toppingList();
     }
