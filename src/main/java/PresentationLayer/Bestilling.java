@@ -38,6 +38,7 @@ public class Bestilling extends Command {
         session.setAttribute("bottom", bottom1.getBottom());
         session.setAttribute("bottomprice", bottom1.getBottomPrice());
 
+
         return "bestilling";
 
     }
