@@ -13,11 +13,6 @@ public class Ordre {
         cupcakeOrdre.add(cupcake);
     }
 
-    public static double totalSum(){
-        for (Cupcake cupcake: cupcakeOrdre) {
-            sum = cupcake.totalPriceCalculator(cupcake.getTopPrice(), cupcake.getBotPrice());
-        }
-    }
 
     public Ordre(int ordreID, ArrayList<Cupcake> cupcakeOrdre, int sum) {
         this.ordreID = ordreID;

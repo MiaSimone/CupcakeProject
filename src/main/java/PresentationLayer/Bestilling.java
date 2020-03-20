@@ -11,32 +11,24 @@ import java.util.ArrayList;
 public class Bestilling extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ClassNotFoundException {
-        // Hent listen fra DB og set det på nogle scopes
+
         HttpSession session = request.getSession();
 
-        // Topping:
-        String topping = request.getParameter("topping");
-        double price = request.getIntHeader("price");
-
+        // Ting der skal settes på bestilling:
         ArrayList<Topping> toppingList = LogicFacade.topping();
-
-        Topping topping1 = new Topping(topping, price);
-
         session.setAttribute("toppingList", toppingList);
-        session.setAttribute("topping", topping1.getTopping());
-        session.setAttribute("price", topping1.getToppingPrice());
-
-        // Bottom:
-        String bottom = request.getParameter("bottom");
-        double priceBottom = request.getIntHeader("price");
 
         ArrayList<Bottom> bottomList = LogicFacade.bottoms();
-
-        Bottom bottom1 = new Bottom(bottom, priceBottom);
-
         session.setAttribute("bottomList", bottomList);
-        session.setAttribute("bottom", bottom1.getBottom());
-        session.setAttribute("bottomprice", bottom1.getBottomPrice());
+
+        // Ting der skal hentes fra bestilling:
+        String toppingName = request.getParameter("toppingName");
+        String bottomName = request.getParameter("bottomName");
+
+        Cupcake cupcake = new Cupcake(toppingName, bottomName);
+        cupcake.setCupcakePrice(cupcake.totalPriceCalculator(toppingName, bottomName));
+
+        
 
 
         return "bestilling";

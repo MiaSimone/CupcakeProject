@@ -40,6 +40,8 @@
 <div class="container">
     <img src="Images/LoginBackground.png" class="img-fluid mb-4" alt="Logo" width="100%" height=auto>
 
+    <p>${sessionScope.toppingPrice}</p>
+
     <!-- Dropdowns -->
     <form action="FrontController" method="post">
         <input type="hidden" name="target" value="kurv"/>
@@ -48,8 +50,8 @@
 
             <div class="col-md-5 school-options-dropdown text-center">
                 <div class="form-group">
-                    <label for="bottom">Vælg bund:</label>
-                    <select class="form-control" name="bottom" id="bottom">
+                    <label for="bottomDropdown">Vælg bund:</label>
+                    <select class="form-control" name="bottomName" id="bottomDropdown">
                         <c:forEach var="bottom" items="${applicationScope.bottomList}">
                             <option value="${bottom.id}">${bottom.bottom}</option>
                         </c:forEach>
@@ -59,14 +61,15 @@
 
             <div class="col-md-5 school-options-dropdown text-center">
                 <div class="form-group">
-                    <label for="topping">Vælg topping:</label>
-                    <select class="form-control" name="topping" id="topping">
+                    <label for="toppingDropdown">Vælg topping:</label>
+                    <select class="form-control" name="toppingName" id="toppingDropdown">
                         <c:forEach var="topping" items="${applicationScope.toppingList}">
                             <option value="${topping.id}">${topping.topping}</option>
                         </c:forEach>
                     </select>
                 </div>
             </div>
+
 
             <div class="col-md-2 school-options text-center">
                 <div class="form-group">

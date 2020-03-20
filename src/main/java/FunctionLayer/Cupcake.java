@@ -1,34 +1,35 @@
 package FunctionLayer;
 
+import DBAccess.BottomMapper;
+import DBAccess.ToppingMapper;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cupcake {
 
     private String topping;
     private String bottom;
-    private double topPrice;
-    private double botPrice;
+    private double cupcakePrice;
     private int topID;
     private int botID;
 
-    public double totalPriceCalculator(double topPrice, double botPrice){
-        return (topPrice + botPrice);
+    public double totalPriceCalculator(String topping, String bottom) throws LoginSampleException {
+        List<Bottom> bottoms = BottomMapper.getAllBottoms();
+        List<Topping> toppings = ToppingMapper.getAllToppings();
+
+        double topPrice = toppings.get(toppings.indexOf(topping)).getToppingPrice();
+        double botPrice = bottoms.get(bottoms.indexOf(bottom)).getBottomPrice();
+        cupcakePrice = (topPrice + botPrice);
+        return cupcakePrice;
     }
 
-
-    public Cupcake(String topping, String bottom, double topPrice, double botPrice) {
+    public Cupcake(String topping, String bottom) {
         this.topping = topping;
         this.bottom = bottom;
-        this.topPrice = topPrice;
-        this.botPrice = botPrice;
+
     }
 
-    public Cupcake(String topping, String bottom, double topPrice, double botPrice, int topID, int botID) {
-        this.topping = topping;
-        this.bottom = bottom;
-        this.topPrice = topPrice;
-        this.botPrice = botPrice;
-        this.topID = topID;
-        this.botID = botID;
-    }
 
     public String getTopping() {
         return topping;
@@ -46,20 +47,12 @@ public class Cupcake {
         this.bottom = bottom;
     }
 
-    public double getTopPrice() {
-        return topPrice;
+    public double getCupcakePrice() {
+        return cupcakePrice;
     }
 
-    public void setTopPrice(double topPrice) {
-        this.topPrice = topPrice;
-    }
-
-    public double getBotPrice() {
-        return botPrice;
-    }
-
-    public void setBotPrice(double botPrice) {
-        this.botPrice = botPrice;
+    public void setCupcakePrice(double cupcakePrice) {
+        this.cupcakePrice = cupcakePrice;
     }
 
     public int getTopID() {
