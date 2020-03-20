@@ -12,6 +12,8 @@ import java.util.List;
 
 public class ToppingMapper {
 
+
+
     public static List<Topping> getAllToppings() throws LoginSampleException {
 
         List<Topping> toppingList = null;
@@ -27,8 +29,8 @@ public class ToppingMapper {
                 }
                 int toppingID = rs.getInt( "ToppingID" );
                 String name = rs.getString( "Name" );
-                double price = rs.getDouble("Price");
-                Topping topping = new Topping(toppingID, name, price);
+                double toppingPrice = rs.getDouble("Price");
+                Topping topping = new Topping(toppingID, name, toppingPrice);
                 toppingList.add(topping);
             }
         } catch ( ClassNotFoundException | SQLException ex ) {
@@ -36,4 +38,5 @@ public class ToppingMapper {
         }
         return toppingList;
     }
+
 }

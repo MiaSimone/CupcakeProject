@@ -12,32 +12,35 @@ import java.util.List;
 public class Bestilling extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws LoginSampleException, SQLException, ClassNotFoundException {
-        // Hent listen fra DB og set det på nogle scopes
+
         HttpSession session = request.getSession();
 
-        // Topping:
-        String topping = request.getParameter("topping");
-        double price = request.getIntHeader("price");
-
+<<<<<<< HEAD
         List<Topping> toppingList = LogicFacade.getAllToppings();
 
         Topping topping1 = new Topping(topping, price);
 
+=======
+        // Ting der skal settes på bestilling:
+        ArrayList<Topping> toppingList = LogicFacade.topping();
+>>>>>>> d508095dbe4d3f572e2fae1131c1fdbc7d399714
         session.setAttribute("toppingList", toppingList);
-        session.setAttribute("topping", topping1.getTopping());
-        session.setAttribute("price", topping1.getToppingPrice());
 
-        // Bottom:
-        String bottom = request.getParameter("bottom");
-        double priceBottom = request.getIntHeader("price");
-
+<<<<<<< HEAD
         List<Bottom> bottomList = LogicFacade.getAllBottoms();
-
-        Bottom bottom1 = new Bottom(bottom, priceBottom);
-
+=======
+        ArrayList<Bottom> bottomList = LogicFacade.bottoms();
         session.setAttribute("bottomList", bottomList);
-        session.setAttribute("bottom", bottom1.getBottom());
-        session.setAttribute("bottomprice", bottom1.getBottomPrice());
+>>>>>>> d508095dbe4d3f572e2fae1131c1fdbc7d399714
+
+        // Ting der skal hentes fra bestilling:
+        String toppingName = request.getParameter("toppingName");
+        String bottomName = request.getParameter("bottomName");
+
+        Cupcake cupcake = new Cupcake(toppingName, bottomName);
+        cupcake.setCupcakePrice(cupcake.totalPriceCalculator(toppingName, bottomName));
+
+        
 
 
         return "bestilling";

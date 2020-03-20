@@ -15,6 +15,9 @@
 dette er kurven!
 
 <p>${sessionScope.sum}</p>
+<p>${sessionScope.toppingPrice}</p>
+<p>${sessionScope.bottomprice}</p>
+
 
 </body>
 </html>
