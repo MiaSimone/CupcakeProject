@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Bestilling extends Command {
     @Override
@@ -18,7 +19,7 @@ public class Bestilling extends Command {
         String topping = request.getParameter("topping");
         double price = request.getIntHeader("price");
 
-        ArrayList<Topping> toppingList = LogicFacade.topping();
+        List<Topping> toppingList = LogicFacade.getAllToppings();
 
         Topping topping1 = new Topping(topping, price);
 
@@ -30,7 +31,7 @@ public class Bestilling extends Command {
         String bottom = request.getParameter("bottom");
         double priceBottom = request.getIntHeader("price");
 
-        ArrayList<Bottom> bottomList = LogicFacade.bottoms();
+        List<Bottom> bottomList = LogicFacade.getAllBottoms();
 
         Bottom bottom1 = new Bottom(bottom, priceBottom);
 

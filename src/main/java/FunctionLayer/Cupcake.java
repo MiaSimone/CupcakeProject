@@ -10,7 +10,10 @@ public class Cupcake {
     private int botID;
 
     public double totalPriceCalculator(double topPrice, double botPrice){
-        return (topPrice + botPrice);
+
+        double sum = topPrice + botPrice;
+
+        return sum;
     }
 
 

@@ -48,8 +48,8 @@
 
             <div class="col-md-5 school-options-dropdown text-center">
                 <div class="form-group">
-                    <label for="bottom">Vælg bund:</label>
-                    <select class="form-control" name="bottom" id="bottom">
+                    <label for="bottomID">Vælg bund:</label>
+                    <select class="form-control" name="bottom" id="bottomID">
                         <c:forEach var="bottom" items="${applicationScope.bottomList}">
                             <option value="${bottom.id}">${bottom.bottom}</option>
                         </c:forEach>
@@ -59,8 +59,8 @@
 
             <div class="col-md-5 school-options-dropdown text-center">
                 <div class="form-group">
-                    <label for="topping">Vælg topping:</label>
-                    <select class="form-control" name="topping" id="topping">
+                    <label for="toppingID">Vælg topping:</label>
+                    <select class="form-control" name="topping" id="toppingID">
                         <c:forEach var="topping" items="${applicationScope.toppingList}">
                             <option value="${topping.id}">${topping.topping}</option>
                         </c:forEach>

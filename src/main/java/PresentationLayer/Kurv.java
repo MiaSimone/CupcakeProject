@@ -20,21 +20,22 @@ public class Kurv extends Command {
         // ToppingID:
         int toppingID = 0;
         toppingID = Integer.parseInt(request.getParameter("topping"));
-        session.setAttribute("toppingID", toppingID);
+        session.setAttribute("topping", toppingID);
 
         // BottomID:
         int bottomID = 0;
         bottomID = Integer.parseInt(request.getParameter("bottom"));
-        session.setAttribute("bottomID", bottomID);
+        session.setAttribute("bottom", bottomID);
 
         // Quantity (antal):
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         session.setAttribute("quantity", quantity);
 
         // Sum:
-
-        double toppingPrice = request.getIntHeader("price");
-        double bottomPrice = request.getIntHeader("price");
+        double toppingPrice = 0;
+        toppingPrice = Double.parseDouble(request.getParameter("price"));
+        double bottomPrice = 0;
+        bottomPrice = Double.parseDouble(request.getParameter("price"));
 
         double sum = UtilClass.Sum.beregnSummen(toppingPrice, bottomPrice, quantity);
         session.setAttribute("sum", sum);

@@ -6,7 +6,7 @@ public class Ordre {
 
     private int ordreID;
     private static ArrayList<Cupcake> cupcakeOrdre;
-    private static double sum;
+    private static double sum = 0;
 
     public static void addCupcake(Cupcake cupcake){
         cupcakeOrdre = new ArrayList<>();
@@ -15,17 +15,18 @@ public class Ordre {
 
     public static double totalSum(){
         for (Cupcake cupcake: cupcakeOrdre) {
-            sum = cupcake.totalPriceCalculator(cupcake.getTopPrice(), cupcake.getBotPrice());
+            sum = sum + cupcake.totalPriceCalculator(cupcake.getTopPrice(), cupcake.getBotPrice());
         }
+        return sum;
     }
 
-    public Ordre(int ordreID, ArrayList<Cupcake> cupcakeOrdre, int sum) {
+    public Ordre(int ordreID, ArrayList<Cupcake> cupcakeOrdre, double sum) {
         this.ordreID = ordreID;
         this.cupcakeOrdre = cupcakeOrdre;
         this.sum = sum;
     }
 
-    public Ordre(ArrayList<Cupcake> cupcakeOrdre, int sum) {
+    public Ordre(ArrayList<Cupcake> cupcakeOrdre, double sum) {
         this.cupcakeOrdre = cupcakeOrdre;
         this.sum = sum;
     }
